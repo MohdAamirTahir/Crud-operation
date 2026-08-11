@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #101820;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(232, 163, 61, 0.06), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(111, 207, 151, 0.05), transparent 40%);
+  color: #f5f3ee;
+}
+
+::selection { background: rgba(232, 163, 61, 0.35); }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #26323f; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #3a4856; }
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise { animation: rise-in 0.28s ease-out both; }
