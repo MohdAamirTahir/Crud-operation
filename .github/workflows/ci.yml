@@ -9,9 +9,8 @@ on:
     branches:
       - main
 
-         # caching disabled temporarily to avoid 'paths not resolved' errors
-         cache: ''
-         cache-dependency-path: ''
+  workflow_dispatch: {}
+
 jobs:
 
   backend:
@@ -29,7 +28,8 @@ jobs:
           node-version: '24'
           cache: 'npm'
           cache-dependency-path: backend/package-lock.json
-    env: {}
+
+      - name: Check Node and npm
         run: |
           node -v
           npm -v
@@ -39,9 +39,8 @@ jobs:
         run: npm ci
 
       - name: Build backend Docker image
-         # caching disabled temporarily to avoid 'paths not resolved' errors
-         cache: ''
-         cache-dependency-path: ''
+        run: docker build -t crud-backend ./backend
+
 
   frontend:
     runs-on: ubuntu-latest
